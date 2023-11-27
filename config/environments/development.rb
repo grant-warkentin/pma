@@ -73,8 +73,9 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
-  config.hosts << "projects.local"
-
+  
   # Mailer URL
   config.action_mailer.default_url_options = { host: 'projects.local', port: 3000 }
+  config.hosts << "projects.local"
+  config.action_mailer.delivery_method = :letter_opener_web
 end
