@@ -1,4 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Projects", projects_path %></li>
+    <li class="breadcrumb-item"><%= link_to @project.name, projects_path(@project) %></li>
+    <li class="breadcrumb-item active" aria-current="page">Tasks</li>
+  </ol>
+</nav>
+
+<style="color: green"><%= notice %></p>
 
 <h1><%= @project.name %> - Tasks</h1>
 
@@ -6,7 +14,7 @@
   <% @tasks.each do |task| %>
     <%= render task %>
     <p>
-      <%= link_to "Show this task", task %>
+    <%= link_to "Show this task", project_task_path(@project, task)%>
     </p>
   <% end %>
 </div>
