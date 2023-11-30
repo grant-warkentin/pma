@@ -1,7 +1,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><%= link_to "Projects", projects_path %></li>
-    <li class="breadcrumb-item"><%= link_to @project.name, projects_path(@project) %></li>
+    <li class="breadcrumb-item"><%= link_to @project.name, project_path(@project) %></li>
     <li class="breadcrumb-item active" aria-current="page">Tasks</li>
   </ol>
 </nav>

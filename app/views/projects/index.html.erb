@@ -10,10 +10,12 @@
 
 <div id="projects">
   <% @projects.each do |project| %>
+    <div class="card">
     <%= render project %>
     <p>
     <%= link_to "Show this project", project %>
     </p>
+    </div>
   <% end %>
 </div>
 
