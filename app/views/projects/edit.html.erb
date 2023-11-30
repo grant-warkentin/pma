@@ -1,12 +1,12 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%=link_to "Projects", projects_path%></li>
-    <li class="breadcrumb-item active"><%=link_to @project.name, project_path%></li>
-  </ol>
-</nav>
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%=link_to "Projects", projects_path%></li>
+      <li class="breadcrumb-item"><%=link_to @project.name, project_path%></li>
+    </ol>
+  </nav>
 
-<h1>Editing project</h1>
+  <h1>Editing project</h1>
 
-<%= render "form", project: @project %>
-
-
+  <%= render "form", project: @project %>
+</div>

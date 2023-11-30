@@ -1,20 +1,21 @@
-<h1>DASHBOARD</h1>
-
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Completion (percentage of tasks complete)</th>
-      <th>Overdue Tasks (count)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @projects.each do |project| %>
+<div class="container">
+  <h1 class="mt-5">Dashboard</h1>
+  <table class="table table-striped table-bordered">
+    <thead>
       <tr>
-        <td><%=link_to project.name, project_path(project)%></td>
-        <td><%=project.tasks.any? ? ((project.tasks.where(complete: true).count.to_f/project.tasks.count)*100).floor : '0'%>%</td>
-        <td><%=overdue_count(project)%></td>
+        <th>Name</th>
+        <th>Completion (percentage of tasks complete)</th>
+        <th>Overdue Tasks (count)</th>
       </tr>
-    <%end%>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%=link_to project.name, project_path(project)%></td>
+          <td><%=project.tasks.any? ? ((project.tasks.where(complete: true).count.to_f/project.tasks.count)*100).floor : '0'%>%</td>
+          <td><%=overdue_count(project)%></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>

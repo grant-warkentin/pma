@@ -1,22 +1,24 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">Projects</li>
-  </ol>
-</nav>
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Projects</li>
+    </ol>
+  </nav>
 
-<p style="color: green"><%= notice %></p>
+  <p style="color: green"><%= notice %></p>
 
-<h1>Projects</h1>
+  <h1>Projects</h1>
 
-<div id="projects">
-  <% @projects.each do |project| %>
-    <div class="card">
-    <%= render project %>
-    <p>
-    <%= link_to "Show this project", project %>
-    </p>
-    </div>
-  <% end %>
+  <div id="projects">
+    <% @projects.each do |project| %>
+      <div class="card my-3 p-3">
+        <%= render project %>
+        <p>
+        <%= link_to "Show this project", project %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "New project", new_project_path %>
 </div>
-
-<%= link_to "New project", new_project_path %>

@@ -1,43 +1,45 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to "Projects", projects_path %></li>
-    <li class="breadcrumb-item"><%= link_to @project.name, project_path(@project) %></li>
-    <li class="breadcrumb-item active" aria-current="page">Tasks</li>
-  </ol>
-</nav>
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to "Projects", projects_path %></li>
+      <li class="breadcrumb-item"><%= link_to @project.name, project_path(@project) %></li>
+      <li class="breadcrumb-item active" aria-current="page">Tasks</li>
+    </ol>
+  </nav>
 
-<style="color: green"><%= notice %></p>
+  <style="color: green"><%= notice %></p>
 
 <h1><%= @project.name %> - Tasks</h1>
 
 <table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Due Date</th>
-      <th>Complete</th>
-      <th>Overdue</th>
-      <th>Status</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Due Date</th>
+<th>Complete</th>
+<th>Overdue</th>
+<th>Status</th>
+</tr>
+</thead>
 
-  <tbody>
-    <% @tasks.each do |task| %>
-    <tr>
-      <td><%=link_to task.name, project_task_path(@project, task) %></td>
-      <td><%=task.due_date%></td>
-      <td><%=task.complete?%></td>
-      <td><%=overdue=!task.due_date.nil? && task.due_date.past? && !task.complete? %></td>
-      <td>
-      <%if overdue%> 
-        <span class="badge text-bg-danger"> Overdue </span>
-      <%elsif task.complete?%>
-        <span class="badge text-bg-success"> Complete </span>
-      <%end%>
-      </td>
-    </tr>
-    <%end%>
-  </tbody>
+<tbody>
+<% @tasks.each do |task| %>
+  <tr>
+  <td><%=link_to task.name, project_task_path(@project, task) %></td>
+  <td><%=task.due_date%></td>
+  <td><%=task.complete?%></td>
+  <td><%=overdue=!task.due_date.nil? && task.due_date.past? && !task.complete? %></td>
+  <td>
+  <%if overdue%> 
+    <span class="badge text-bg-danger"> Overdue </span>
+  <%elsif task.complete?%>
+    <span class="badge text-bg-success"> Complete </span>
+  <%end%>
+  </td>
+  </tr>
+<%end%>
+</tbody>
 </table>
 
 <%= link_to "New task", new_project_task_path(@project) %>
+</div>
