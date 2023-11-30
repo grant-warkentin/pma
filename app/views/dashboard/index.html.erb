@@ -1,1 +1,16 @@
 <h1>DASHBOARD</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Completion (percentage of tasks complete)</th>
+    <th>Overdue Tasks (count)</th>
+  </tr>
+  <% @projects.each do |project| %>
+  <tr>
+    <th><%=link_to project.name, project_path(project)%></th>
+    <th><%=project.tasks.any? ? ((project.tasks.where(complete: true).count.to_f/project.tasks.count)*100).floor : '0'%>%</th>
+    <th><%=overdue_count(project)%></th>
+  </tr>
+  <%end%>
+</table>
