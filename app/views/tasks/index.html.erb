@@ -10,13 +10,22 @@
 
 <h1><%= @project.name %> - Tasks</h1>
 
-<div id="tasks">
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Due Date</th>
+    <th>Complete</th>
+    <th>Overdue</th>
+    <th>Status</th>
+  </tr>
   <% @tasks.each do |task| %>
-    <%= render task %>
-    <p>
-    <%= link_to "Show this task", project_task_path(@project, task)%>
-    </p>
-  <% end %>
-</div>
+    <td><%=task.name%></td>
+    <td><%=task.due_date%></td>
+    <td><%=task.name%></td>
+    <td><%=task.name%></td>
+    <td><%=task.name%></td>
+  <%end%>
+  <tr>
+</table>
 
 <%= link_to "New task", new_project_task_path(@project) %>
